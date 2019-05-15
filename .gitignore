@@ -1,0 +1,6 @@
+# Don't track content of these folders
+website/
+
+# Don't track these files
+RStudio.lnk
+
