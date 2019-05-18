@@ -5,5 +5,6 @@ Meetup: [Stats-A-Thon Wrap Up](https://www.meetup.com/Burlington-Data-Scientists
 Department of Environmental Conservation: [Lake Champlain Long Term Monitoring Project](https://dec.vermont.gov/watershed/lakes-ponds/monitor/lake-champlain)
 
 ### Data Exploration
--- The correlation  for various water quality parameters with the amount of chlorophyll are plotted in the historams below. The relationship between phosphorus and chlorophyll is fairly strong. 
+-- The correlations between various water quality parameters and the amount of chlorophyll are plotted below. The number of stations in each histogram bin is on the y axis.  
+The relationship between total phosphorus and chlorophyll is fairly strong. 
 ![Correlations with chlorophyll](Correlations.JPG)
