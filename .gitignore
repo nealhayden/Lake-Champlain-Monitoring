@@ -1,5 +1,6 @@
 # Don't track content of these folders
 website/
+archive/
 
 # Don't track these files
 RStudio.lnk
