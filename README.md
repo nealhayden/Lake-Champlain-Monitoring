@@ -1,4 +1,4 @@
-# Predict algal blooms in Lake Chammplain. 
+# Predict algal blooms in Lake Champlain. 
 
 ### Links
 - Meetup: [Stats-A-Thon Wrap Up](https://www.meetup.com/Burlington-Data-Scientists/events/259092234/)
