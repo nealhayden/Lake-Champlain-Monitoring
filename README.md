@@ -1,4 +1,4 @@
-# Predict Algal blooms in Lake Champlain. 
+# Predict Algal Blooms in Lake Champlain 
 
 ### Links
 - Meetup: [Stats-A-Thon Wrap Up](https://www.meetup.com/Burlington-Data-Scientists/events/259092234/)
@@ -6,5 +6,5 @@
 
 ### Data Exploration
 - The correlations between various water quality parameters and the amount of chlorophyll are plotted below.
-The relationship between total phosphorus and chlorophyll is fairly strong. 
+The relationship between total phosphorus and chlorophyll is moderately strong (R avg = 0.51). 
 ![Correlations with chlorophyll](Correlations.JPG)
