@@ -65,7 +65,7 @@ by_station <- by_station %>% mutate(ts_data = map(data, time_series))
 
 par(mfrow = c(3,5))
 for (i in 1:15) {
-  plot(by_station$ts_data[[i]])
+  plot(by_station$ts_data[[i]], main=by_station$Station[[i]])
 }  
 
 ## Model time series using ARIMA forecasting. 
@@ -78,6 +78,8 @@ by_station <- by_station %>% mutate(fit_arima = map(ts_data, arima_model))
 par(mfrow = c(3,5))
 for (i in 1:15) {
   fit <- forecast(by_station$fit_arima[[i]])
-  plot(fit, 3)
+  plot(fit)
+  title(by_station$Station[[i]], line = .5)
 }  
 
+par(off)
