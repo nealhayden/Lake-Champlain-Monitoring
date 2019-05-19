@@ -10,5 +10,5 @@ The relationship between total phosphorus and chlorophyll is moderately positive
 ![Correlations with chlorophyll](Correlations.JPG)
 
 ### Predictions
-- Predictions for chlorophyll amounts at each testing station for 2019-2021.
+- Predictions for chlorophyll amounts at each testing station for years 2019-2021.
 ![chlorophyll prediction](arima.JPG)
