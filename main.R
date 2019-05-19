@@ -2,7 +2,7 @@ library(tidyverse)
 library(broom)
 library(lubridate)
 library(forecast)
-library(car)
+
 
 rm(list = ls())
 ##==========================================================================================================================================
@@ -45,8 +45,6 @@ cors %>% group_by(test_name) %>% summarize(avg = mean(Chlorophyll_a, na.rm = T))
 plot <- ggplot(data = cors, aes(x = Chlorophyll_a)) + geom_histogram(binwidth = 0.1, color="black", fill="grey") + coord_cartesian(xlim = c(-1, 1))
 plot + facet_wrap(~test_name, scale = "free", nrow = 3)
 
-avg(cors$Chlorophyll_a, na.rm=T)
-
 ## Build linear models for chlorophyll amount using Phosphorus. 
 linear_model <- function (df) {
   df <- df  %>% spread(Test, medianResult)
@@ -77,9 +75,9 @@ by_station <- by_station %>% mutate(fit_arima = map(ts_data, arima_model))
 ## Plot the forecasts.  
 par(mfrow = c(3,5))
 for (i in 1:15) {
-  fit <- forecast(by_station$fit_arima[[i]])
+  fit <- forecast(by_station$fit_arima[[i]], 3)
   plot(fit)
   title(by_station$Station[[i]], line = .5)
 }  
 
-par(off)
+
