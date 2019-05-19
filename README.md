@@ -6,7 +6,7 @@
 
 ### Data Exploration
 - Correlations between various water quality parameters and the amount of chlorophyll.
-The relationship between total phosphorus and chlorophyll is moderately positive (R avg = 0.51). 
+The relationship between total phosphorus and chlorophyll is the most promising. 
 ![Correlations with chlorophyll](Correlations.JPG)
 
 ### Predictions

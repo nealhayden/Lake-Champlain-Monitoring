@@ -3,7 +3,6 @@ library(broom)
 library(lubridate)
 library(forecast)
 
-
 rm(list = ls())
 ##==========================================================================================================================================
 ## Chlorophyll_a will be used as an indicator of how much algae is present at the sample site.
@@ -28,7 +27,7 @@ by_station$data <- map(by_station$data, fill_in_missing_years)
 
 test_correlations <- function (df) {
   pivot_tests <- df %>% spread(Test, medianResult)
-  cor(pivot_tests %>% select(Chloride:Total_Phosphorus), use = "complete.obs") %>% as.data.frame() %>% select(Chlorophyll_a)  
+  cor(pivot_tests %>% select(Chloride:Total_Phosphorus), use = "pairwise.complete.obs") %>% as.data.frame() %>% select(Chlorophyll_a)  
 }
 
 add_rownames <- function(df) {
@@ -44,6 +43,8 @@ cors %>% group_by(test_name) %>% summarize(avg = mean(Chlorophyll_a, na.rm = T))
 ## Plot Correlations with chlorophyll. 
 plot <- ggplot(data = cors, aes(x = Chlorophyll_a)) + geom_histogram(binwidth = 0.1, color="black", fill="grey") + coord_cartesian(xlim = c(-1, 1))
 plot + facet_wrap(~test_name, scale = "free", nrow = 3)
+
+avg(cors$Chlorophyll_a, na.rm=T)
 
 ## Build linear models for chlorophyll amount using Phosphorus. 
 linear_model <- function (df) {
@@ -77,7 +78,7 @@ par(mfrow = c(3,5))
 for (i in 1:15) {
   fit <- forecast(by_station$fit_arima[[i]], 3)
   plot(fit)
-  title(by_station$Station[[i]], line = .5)
+ ## title(by_station$Station[[i]], line = .5)
 }  
 
 
