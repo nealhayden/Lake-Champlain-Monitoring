@@ -6,10 +6,9 @@ library(car)
 
 rm(list = ls())
 ##==========================================================================================================================================
-## Intro-
+## Chlorophyll_a will be used as an indicator of how much algae is present at the sample site.
 ## Build the model with tests for Chloride, Chlorophyll_a, Dissolved_Oxygem, Dissolved_Silica, Iron, Magnesium, Potassium
 ## Sodium, Temperature, Total_Nitrogen, and Total_Phosphorus. 
-## Chlorophyll_a will be used as an indicator of how much algae is present at the sample site.
 ##==========================================================================================================================================
 
 raw_data <- read_csv("StationData.csv") %>% mutate(VisitDate = parse_date(VisitDate, "%m/%d/%Y")) %>% 
@@ -75,9 +74,10 @@ arima_model <- function (ts) {
 }
 by_station <- by_station %>% mutate(fit_arima = map(ts_data, arima_model))
 
-## Plot the Arima forecasts.  
+## Plot the forecasts.  
 par(mfrow = c(3,5))
 for (i in 1:15) {
-  plot(forecast(by_station$fit_arima[[i]], 3))
+  fit <- forecast(by_station$fit_arima[[i]])
+  plot(fit, 3)
 }  
 
