@@ -18,8 +18,7 @@ agg_data <- raw_data %>% group_by(StationID, Station, Test, Year) %>% summarize(
   ungroup()
 
 ## Plot chlorophyll levles over time. 
-agg_data %>% filter(Test == "Chlorophyll_a") %>% ggplot(aes(x = Year, y = medianResult, group = Station)) + geom_line()
-agg_data %>% filter(StationID == 51, Test == "Chlorophyll_a")
+agg_data %>% filter(Test == "Chlorophyll_a") %>% ggplot(aes(x = Year, y = medianResult)) + geom_line(aes(group = Station)) + geom_smooth(se = F)
 
 ## Nest data by station.  
 by_station <- agg_data %>% group_by(StationID, Station) %>% nest()
