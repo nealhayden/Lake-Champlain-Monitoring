@@ -11,11 +11,16 @@ rm(list = ls())
 ##==========================================================================================================================================
 
 raw_data <- read_csv("StationData.csv") %>% mutate(VisitDate = parse_date(VisitDate, "%m/%d/%Y")) %>% 
-  mutate(Year = year(VisitDate)) 
+  mutate(Year = year(VisitDate)) %>% filter(!StationID == 51)
 
 ## Aggregate median tests values by year.
 agg_data <- raw_data %>% group_by(StationID, Station, Test, Year) %>% summarize(medianResult = median(Result, na.rm = T)) %>%
   ungroup()
+
+## Plot chlorophyll levles over time. 
+agg_data %>% filter(Test == "Chlorophyll_a") %>% ggplot(aes(x = Year, y = medianResult, group = Station)) + geom_line()
+agg_data %>% filter(StationID == 51, Test == "Chlorophyll_a")
+
 ## Nest data by station.  
 by_station <- agg_data %>% group_by(StationID, Station) %>% nest()
 
@@ -78,7 +83,7 @@ par(mfrow = c(3,5))
 for (i in 1:15) {
   fit <- forecast(by_station$fit_arima[[i]], 3)
   plot(fit)
- ## title(by_station$Station[[i]], line = .5)
+  title(by_station$Station[[i]], line = .5)
 }  
 
 
