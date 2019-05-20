@@ -9,7 +9,7 @@
 ![chlorophyll with Loess](Chlorophyll.JPG)
 - Correlations between various water quality parameters and the amount of chlorophyll.
 The relationship between total phosphorus and chlorophyll is the most promising. 
-![Correlations with chlorophyll](Correlations.JPG)
+![Correlations with chlorophyll](Correlations2.JPG)
 
 ### Predictions
 - Predictions for chlorophyll amounts at each testing station for years 2019-2021.
