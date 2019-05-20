@@ -5,7 +5,7 @@
 - Department of Environmental Conservation: [Lake Champlain Long Term Monitoring Project](https://dec.vermont.gov/watershed/lakes-ponds/monitor/lake-champlain)
 
 ### Data Exploration
-- Chlorophyll levels over time for all 14 stations along with the Loess curve. 
+- Chlorophyll levels over time for each station along with the Loess curve. 
 ![chlorophyll with Loess](Chlorophyll.JPG)
 - Correlations between various water quality parameters and the amount of chlorophyll.
 The relationship between total phosphorus and chlorophyll is the most promising. 
